@@ -1,0 +1,159 @@
+<!Doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=0.1" />
+
+
+<title>Exercices JavaScript - TP</title>
+<style>
+body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:20px;line-height:1.5}
+h1,h2{color:#1f6feb}
+section{border:1px solid #e3e7ee;padding:16px;border-radius:8px;margin:12px 0}
+pre{background:#f6f8fb;padding:10px;border-radius:6px;overflow:auto}
+button{margin:6px 4px;padding:8px 12px;border-radius:6px;border:1px solid #cbd5e1;background:#fff}
+.out{background:#f8fafc;border:1px dashed #cbd5e1;padding:10px;border-radius:6px;margin-top:8px}
+</style>
+<script  src="exercice1.js"></script>
+<script  src="exercice2.js"></script>
+<script  src="exercice3.js"></script>
+<script src="exercice4.js"></script>
+<script src="exercice5.js"></script>
+<script src="exercice6.js"></script>
+<script src="exercice7.js"></script>
+<script src="exercice8.js"></script>
+<script src="exercice9.js"></script>
+<script src="exercice10.js"></script>
+</head>
+<body>
+<h1>Solutions JavaScript</h1>
+
+
+<section id="types">
+<h2>1. Types & conversion</h2>
+
+<pre id="codeTypes">// Déclarations
+let x = "150";
+let y = 150;
+let z = true;
+console.log(typeof x, typeof y, typeof z);
+// Convertir x en nombre
+x = Number(x);
+console.log(typeof x);</pre>
+<button onclick="runTypes()">Exécuter</button>
+<div id="outTypes" class="out"></div>
+<p>Explication : La raison pour laquelle JavaScript peut changer dynamiquement le type d’une variable tient au fait que JavaScript est un langage à typage dynamique. </p>
+</section>
+
+
+<section id="chaine">
+<h2>2. Chaîne avec prénom et âge + modification</h2>
+<pre id="codeString">let prenom = "Sara";
+let age = 22;
+let phrase = `Je m'appelle ${prenom} et j'ai ${age} ans`;
+
+let ageInter = age;
+ageInter = 23;
+
+phrase = `Je m'appelle ${prenom} et j'ai ${ageInter} ans`;
+;</pre>
+<button onclick="runChaine()">Exécuter</button>
+<div id="outChaine" class="out"></div>
+</section>
+
+
+<section id="classement">
+<h2>3. Classification d'un nombre (conditions imbriquées)</h2>
+<p>Règles (exigées):</p>
+<ul>
+<li>"Nombre négatif" si &lt; 0</li>
+<li>"Petit" entre 0 et 10</li>
+<li>"Moyen" entre 11 et 50</li>
+<li>"Grand" si &gt; 50</li>
+<li>"Très grand" si &gt; 100</li>
+</ul>
+<button onclick="classifyNumberPrompt()">Demander un nombre</button>
+<div id="outClasse" class="out"></div>
+</section>
+<section id="threefive">
+<h2>4. Afficher nombres entre min et max (Three / Five / Five&Three)</h2>
+<p>Règle pour chaque nombre i :</p>
+<ul>
+<li>"Five&Three" si multiple de 3 et 5</li>
+<li>"Three" si multiple de 3</li>
+<li>"Five" si multiple de 5</li>
+<li>sinon afficher i</li>
+</ul>
+<button onclick="rangeThreeFivePrompt()">Demander min et max</button>
+<div id="outRange" class="out"></div>
+</section>
+
+
+<section id="table">
+<h2>5. Table de multiplication (boucle for)</h2>
+<button onclick="multiplicationTablePrompt()">Demander n</button>
+<div id="outTable" class="out"></div>
+</section>
+<section id="sommePairImpair">
+<h2>6. Sommes des pairs et impairs entre 1 et 50</h2>
+<button onclick="sumEvenOdd1to50()">Calculer</button>
+<div id="outSum" class="out"></div>
+</section>
+
+
+<section id="password">
+    <h2>7. Vérification mot de passe</h2>
+    <pre>// conditions : longueur >= 8 et contient le symbole '@'
+function verifierMotDePasse(mdp) {
+return typeof mdp === 'string' && mdp.length >= 8 && mdp.includes('@');
+}</pre>
+    <button onclick="checkPasswordPrompt()">Demander mot de passe</button>
+<div id="outPwd" class="out"></div>
+</section>
+
+
+<section id="factorielle">
+<h2>8. Factorielle (récursive)</h2>
+<pre>// Fonction récursive
+function factorielle(n) {
+if (n === 0) return 1;
+return n * factorielle(n - 1);
+}
+// exemple : factorielle(5) -> 120</pre>
+<button onclick="factoriellePrompt()">Demander n</button>
+<div id="outFact" class="out"></div>
+</section>
+
+
+<section id="sommeCompare">
+<h2>9. Somme iterative vs récursive + analyse</h2>
+<pre>// itérative
+function sommeIterative(n) {
+let s = 0;
+for (let i = 1; i <= n; i++) s += i;
+return s;
+}
+// récursive
+function sommeRecursive(n) {
+if (n === 0) return 0;
+return n + sommeRecursive(n - 1);
+}
+</pre>
+<button onclick="compareSumPrompt()">Demander n pour comparer</button>
+<div id="outCompare" class="out"></div>
+</section>
+ <h1>Exercice 10 — Somme itérative vs récursive</h1>
+
+    <button onclick="testSommes()">Tester</button>
+
+    <pre id="resultat"></pre>
+<h3>Analyse (réponses)</h3>
+<ol>
+<li><strong>Lisibilité :</strong> la version récursive est souvent plus concise et mathématiquement claire ; la version itérative est explicite et facile à comprendre pour la plupart des débutants.</li>
+<li><strong>Performance :</strong> l'itérative est généralement plus performante en JS (moins d'appels de fonction, moins de surcharge d'empilement).</li>
+<li><strong>Risque récursion :</strong> oui — la récursion profonde peut provoquer un dépassement de la pile (stack overflow) si n est grand.</li>
+<li><strong>Quand privilégier boucle :</strong> pour des tâches itératives lourdes, quand les performances et la mémoire comptent, ou quand n peut être grand.</li>
+</ol>
+
+</body>
+</html>
