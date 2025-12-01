@@ -77,9 +77,7 @@ Sinon, elle retourne false.<br>
 Demandez ensuite un mot de passe utilisateur via prompt() puis affichez :<br>
 "Mot de passe valide" ou<br>
 "Mot de passe non valide"<br>
-
-**Exercice 8 — Fonction : calcul d’un total avec remise**
-
+**exercice8**
 Créer une fonction totalAvecRemise(total, remise) qui retourne :<br>
 totalFinal = total - (total * remise / 100)<br>
 Demandez à l’utilisateur :<br>
